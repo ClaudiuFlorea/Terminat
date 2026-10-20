@@ -1,73 +1,137 @@
-# Terminat
+<p align="center">
+  <img src="assets/terminat-logo.png" width="180" alt="Terminat app icon">
+</p>
 
-**A native macOS terminal and SSH client built for fast local shell access, saved connections, multi-terminal workflows, and Broadcast Input.**
+<h1 align="center">Terminat</h1>
 
-Terminat is a native macOS application for developers, sysadmins, and anyone who works across local shells and SSH sessions. It combines a real local `zsh` terminal, saved SSH connections, flexible multi-terminal layouts, secure macOS Keychain credentials, and keyboard-first controls in a single native interface.
+<p align="center">
+  <strong>A native macOS terminal and SSH client for fast local shells, saved connections, flexible multi-terminal layouts, and Broadcast Input.</strong>
+</p>
 
-> Current release: **2.0.0**  
-> Requires **macOS 26.3 or later**.
+<p align="center">
+  <a href="https://github.com/ClaudiuFlorea/Terminat/releases/latest"><strong>Download Terminat 2.0.0</strong></a>
+  · macOS 26.3+
+  · Developer ID signed & Apple notarized
+</p>
 
-## Download
+<p align="center">
+  <img src="assets/broadcast-input.png" alt="Terminat Broadcast Input across multiple terminal panes">
+</p>
 
-Download the latest signed, notarized build from the **Releases** section of this repository.
+## Why Terminat
 
-Terminat is distributed directly for macOS and is not distributed through the Mac App Store.
+Terminat is built for people who live in terminals but want the speed and polish of a native macOS app. It combines real local `zsh` sessions, saved SSH connections, system OpenSSH, secure Keychain credentials, flexible pane layouts, and multi-session Broadcast Input in one keyboard-first workspace.
 
-## Highlights
+There is no Terminat account, cloud backend, advertising SDK, or browser-based terminal layer.
 
-### Native local terminal
+## Workspace
 
-- Real local `zsh` sessions through a PTY
-- Standard terminal behavior including ANSI colors, copy/paste, scrolling, Tab, arrows, Control commands, and interactive CLI tools
-- Independent local shell sessions
-- Native macOS interface built with SwiftUI/AppKit
+<table>
+  <tr>
+    <td width="50%">
+      <img src="assets/layout-picker.png" alt="Terminat layout picker">
+      <br><strong>Flexible layouts</strong><br>
+      Switch between Single, Columns, Rows, and Grid without restarting sessions.
+    </td>
+    <td width="50%">
+      <img src="assets/workspace-grid.png" alt="Terminat grid workspace">
+      <br><strong>Resizable Grid</strong><br>
+      Resize rows and columns, expand panes horizontally or vertically, and keep session order intact.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/grid-no-sidebar.png" alt="Terminat workspace with hidden sidebar">
+      <br><strong>Focus on the terminals</strong><br>
+      Hide the sidebar when you want the entire window for active sessions.
+    </td>
+    <td width="50%">
+      <img src="assets/grid-slots.png" alt="Terminat grid slots">
+      <br><strong>Persistent workspace structure</strong><br>
+      Grid capacity stays stable while terminals open and close during the current workspace.
+    </td>
+  </tr>
+</table>
 
-### SSH client
+## Broadcast Input
 
-- Save SSH connections with name, host, port, username, optional identity file, optional saved password, and optional Keep Alive
-- Uses the system `/usr/bin/ssh`
-- Supports normal OpenSSH behavior including `~/.ssh/config`, `known_hosts`, SSH agent, keys, ProxyJump / ProxyCommand, and OpenSSH-managed options
-- Password, Identity File, and None authentication modes
-- Saved passwords are stored in macOS Keychain
+Select multiple terminal panes and send the same raw terminal input to all selected targets.
 
-### SSH config integration
+Useful for repeating commands across several machines or sessions without copy/paste loops.
 
-- Reads aliases from the configured SSH config file
-- Default path: `~/.ssh/config`
-- SSH config entries remain read-only
-- Custom SSH config paths are supported
-- SSH config entries can be copied into Terminat's saved connections
+- visually distinct selected and active Broadcast states
+- disconnected sessions are excluded automatically
+- input is forwarded at terminal-input level
+- normal text, Enter, Backspace, Tab, arrows, Escape, and supported control sequences are preserved
 
-### Saved connections and folders
+The keyboard workflow is intentionally explicit:
 
-- Create, rename, and delete folders
-- Move saved connections between folders
-- Drag-and-drop organization
-- Search saved connections and SSH config entries
-- Search by connection name, host/IP, and username
+| Shortcut | Action |
+| --- | --- |
+| **⌘1…⌘9** | Focus terminal 1…9 |
+| **⇧⌘+** | Add current terminal to Broadcast selection |
+| **⇧⌘-** | Remove current terminal from Broadcast selection |
+| **⇧⌘B** | Toggle Broadcast Input |
 
-### Multi-terminal layouts
+## SSH without replacing OpenSSH
 
-Terminat supports four workspace modes:
+Terminat uses macOS' system `/usr/bin/ssh` rather than implementing its own SSH stack.
 
-- **Single** — one terminal at a time
-- **Columns** — terminals side-by-side
-- **Rows** — terminals stacked vertically
-- **Grid** — two-column grid with resizable rows and columns
+That means your normal OpenSSH environment continues to work, including:
 
-Grid also supports user-controlled horizontal and vertical pane expansion while preserving session order and terminal state.
+- `~/.ssh/config`
+- `known_hosts`
+- SSH agent
+- identity files
+- ProxyJump / ProxyCommand
+- custom OpenSSH options handled by your SSH configuration
 
-Switching layouts never restarts terminal sessions.
+<p align="center">
+  <img src="assets/new-connection.png" alt="Terminat New Connection editor">
+</p>
 
-### Broadcast Input
+Saved connections support:
 
-Broadcast Input can mirror terminal input to multiple selected sessions.
+- name, host, port, and username
+- Password, Identity File, or None authentication modes
+- optional SSH Keep Alive
+- paste/import of a normal `ssh user@host ...` command
+- folders and drag-and-drop organization
+- search across saved connections and SSH-config entries
 
-Useful for running the same command across several machines at once.
+SSH config entries are read-only in Terminat and can be copied into Saved Connections when you want to manage them inside the app.
 
-The selection and broadcast state are visually distinct, and disconnected sessions are excluded from Broadcast targets.
+## Secure credentials
 
-Use Broadcast Input carefully: commands are sent to every selected target.
+Saved SSH passwords are stored in **macOS Keychain**.
+
+They are not stored in:
+
+- connection JSON files
+- UserDefaults
+- command-line arguments
+- logs
+
+Terminat's AskPass flow uses a private local Unix-domain socket and validates the requesting process before the main app reads a password from Keychain.
+
+See [SECURITY.md](SECURITY.md) for implementation details.
+
+## Native appearance
+
+Terminat is a native SwiftUI/AppKit macOS application with light/dark application themes, terminal themes, installed monospace font selection, live font sizing, and native Settings.
+
+<p align="center">
+  <img src="assets/settings-terminal.png" alt="Terminat terminal settings">
+</p>
+
+## Local terminal
+
+- real local `zsh` sessions through a PTY
+- independent terminal sessions
+- ANSI colors and interactive CLI applications
+- standard copy/paste and scrolling
+- Control commands, Tab, arrows, Escape, and shell key combinations
+- terminal title and size/status metadata
 
 ## Keyboard shortcuts
 
@@ -76,83 +140,81 @@ Use Broadcast Input carefully: commands are sent to every selected target.
 | **⌘T** | New Local Shell |
 | **⌘W** | Close current terminal session |
 | **⌘1…⌘9** | Focus terminal 1…9 |
+| **⌘←** | Previous terminal |
+| **⌘→** | Next terminal |
 | **⇧⌘+** | Add current terminal to Broadcast selection |
 | **⇧⌘-** | Remove current terminal from Broadcast selection |
 | **⇧⌘B** | Toggle Broadcast Input |
-| **⌘←** | Previous terminal |
-| **⌘→** | Next terminal |
 | **⇧⌘L** | Cycle layout |
 | **⌘K** | Focus connection search |
 | **⇧⌘S** | Toggle sidebar |
 | **⌘,** | Settings |
 | **⌘Q** | Quit |
 
-Terminal-specific shortcuts such as Control-C, Control-D, Tab, arrows, Escape, and shell/application key combinations continue to go to the active terminal.
+## Download
 
-## Security
+Download the latest signed and notarized DMG from:
 
-Terminat is designed for local-first terminal and SSH workflows.
+**[GitHub Releases](https://github.com/ClaudiuFlorea/Terminat/releases/latest)**
 
-Saved SSH passwords are stored in macOS Keychain. They are not stored in connection JSON files, UserDefaults, command-line arguments, or logs.
+Current release: **2.0.0**
 
-Saved passwords are delivered to OpenSSH through a local AskPass flow tied to the active SSH process and validated against the running Terminat application.
+Requires **macOS 26.3 or later**.
 
-Release builds are:
-
-- signed with Apple Developer ID
-- built with Hardened Runtime
-- notarized by Apple
-- distributed in signed, notarized DMGs
-
-See [SECURITY.md](SECURITY.md).
-
-## Privacy
-
-Terminat currently has:
-
-- no Terminat cloud account
-- no Terminat cloud sync
-- no Terminat backend
-- no advertising SDK
-
-Local configuration remains on the Mac.
-
-Network access is used for:
-
-- SSH sessions explicitly opened by the user
-- Sparkle update checks and downloads
-- network activity initiated by commands and applications running inside terminal sessions
-
-See [PRIVACY.md](PRIVACY.md).
+Terminat is distributed directly for macOS and is not distributed through the Mac App Store.
 
 ## Updates
 
 Terminat uses Sparkle 2 for signed application updates.
 
-You can check manually from **Settings → Updates → Check for Updates…**.
+Existing GATE22 1.x installations can update directly to Terminat 2.0.0 through the legacy GATE22 feed. After that migration, Terminat uses this repository's update feed for future releases.
 
-Update metadata is published through this repository's `appcast.xml`.
+Updates are protected by Sparkle EdDSA signatures in addition to Apple Developer ID signing and notarization.
 
-## Distribution
+## Privacy
 
-Terminat is closed-source software.
+Terminat is local-first.
 
-This public repository is used for:
+It currently has:
 
-- release downloads
-- Sparkle update metadata
-- changelog and documentation
-- public release information
+- no Terminat user account
+- no Terminat cloud sync
+- no Terminat backend
+- no advertising SDK
 
-The application source code is maintained privately.
+Network access is used for SSH sessions explicitly opened by the user, Sparkle update checks/downloads, and network activity initiated by commands running inside terminal sessions.
+
+See [PRIVACY.md](PRIVACY.md).
 
 ## Release integrity
 
-For Terminat 2.0.0:
+**Terminat 2.0.0**
 
 ```text
 SHA-256
 c08d4e0ed2c3a8db09b1ec274cccfbb97b42549a3dc079a4fcae9663a7a77f8d
 ```
 
-The distributed DMG is Developer ID signed, Apple notarized, and stapled.
+The release DMG is:
+
+- Developer ID signed
+- built with Hardened Runtime
+- Apple notarized
+- stapled for offline Gatekeeper verification
+
+## Public repository
+
+Terminat is closed-source software.
+
+This repository contains:
+
+- release downloads
+- Sparkle update metadata
+- changelog
+- security documentation
+- privacy documentation
+- product screenshots
+
+The application source code is maintained privately.
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
