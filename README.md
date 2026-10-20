@@ -1,7 +1,11 @@
+<p align="center">
+  <img src="assets/terminat-logo.png" width="180" alt="Terminat app icon">
+</p>
+
 <h1 align="center">Terminat</h1>
 
 <p align="center">
-  <strong>A native macOS terminal and SSH client for fast local shells, saved connections, flexible multi-terminal layouts, and Broadcast Input.</strong>
+  <strong>Native macOS terminal and SSH client with saved connections, flexible layouts, Broadcast Input, and secure Keychain credentials.</strong>
 </p>
 
 <p align="center">
@@ -10,17 +14,44 @@
   · Developer ID signed & Apple notarized
 </p>
 
+<p align="center">
+  <img src="assets/broadcast-input.jpg" alt="Terminat Broadcast Input across multiple terminal panes">
+</p>
+
 ## Why Terminat
 
-Terminat is built for people who live in terminals but want the speed and polish of a native macOS app. It combines real local `zsh` sessions, saved SSH connections, system OpenSSH, secure Keychain credentials, flexible pane layouts, and multi-session Broadcast Input in one keyboard-first workspace.
+Terminat is built for people who live in terminals but want a native macOS workflow. It combines real local `zsh` sessions, saved SSH connections, system OpenSSH, secure Keychain credentials, flexible pane layouts, and multi-session Broadcast Input in one keyboard-first app.
 
 There is no Terminat account, cloud backend, advertising SDK, or browser-based terminal layer.
 
 ## Workspace
 
-## Workspace
-
-Terminat supports **Single**, **Columns**, **Rows**, and **Grid** layouts without restarting sessions. Grid supports resizable rows and columns, horizontal/vertical pane expansion, persistent session order, and sidebar-free focused workflows.
+<table>
+  <tr>
+    <td width="50%">
+      <img src="assets/layout-picker.jpg" alt="Terminat layout picker"><br>
+      <strong>Flexible layouts</strong><br>
+      Switch between Single, Columns, Rows, and Grid without restarting sessions.
+    </td>
+    <td width="50%">
+      <img src="assets/workspace-grid.jpg" alt="Terminat grid workspace"><br>
+      <strong>Resizable Grid</strong><br>
+      Resize rows and columns, expand panes, and keep session order intact.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/grid-no-sidebar.jpg" alt="Terminat workspace with hidden sidebar"><br>
+      <strong>Focused workspace</strong><br>
+      Hide the sidebar when you want the whole window for active sessions.
+    </td>
+    <td width="50%">
+      <img src="assets/grid-slots.jpg" alt="Terminat grid slot layout"><br>
+      <strong>Persistent grid structure</strong><br>
+      Grid capacity stays stable while terminals open and close during the current workspace.
+    </td>
+  </tr>
+</table>
 
 ## Broadcast Input
 
@@ -33,8 +64,6 @@ Useful for repeating commands across several machines or sessions without copy/p
 - input is forwarded at terminal-input level
 - normal text, Enter, Backspace, Tab, arrows, Escape, and supported control sequences are preserved
 
-The keyboard workflow is intentionally explicit:
-
 | Shortcut | Action |
 | --- | --- |
 | **⌘1…⌘9** | Focus terminal 1…9 |
@@ -46,14 +75,11 @@ The keyboard workflow is intentionally explicit:
 
 Terminat uses macOS' system `/usr/bin/ssh` rather than implementing its own SSH stack.
 
-That means your normal OpenSSH environment continues to work, including:
+That means your normal OpenSSH environment continues to work, including `~/.ssh/config`, `known_hosts`, SSH agent, identity files, ProxyJump / ProxyCommand, and other OpenSSH-managed options.
 
-- `~/.ssh/config`
-- `known_hosts`
-- SSH agent
-- identity files
-- ProxyJump / ProxyCommand
-- custom OpenSSH options handled by your SSH configuration
+<p align="center">
+  <img src="assets/new-connection.jpg" alt="Terminat New Connection editor">
+</p>
 
 Saved connections support:
 
@@ -64,18 +90,13 @@ Saved connections support:
 - folders and drag-and-drop organization
 - search across saved connections and SSH-config entries
 
-SSH config entries are read-only in Terminat and can be copied into Saved Connections when you want to manage them inside the app.
+SSH config entries remain read-only in Terminat and can be copied into Saved Connections when you want to manage them inside the app.
 
 ## Secure credentials
 
 Saved SSH passwords are stored in **macOS Keychain**.
 
-They are not stored in:
-
-- connection JSON files
-- UserDefaults
-- command-line arguments
-- logs
+They are not stored in connection JSON files, UserDefaults, command-line arguments, or logs.
 
 Terminat's AskPass flow uses a private local Unix-domain socket and validates the requesting process before the main app reads a password from Keychain.
 
@@ -84,6 +105,10 @@ See [SECURITY.md](SECURITY.md) for implementation details.
 ## Native appearance
 
 Terminat is a native SwiftUI/AppKit macOS application with light/dark application themes, terminal themes, installed monospace font selection, live font sizing, and native Settings.
+
+<p align="center">
+  <img src="assets/settings-terminal.jpg" alt="Terminat terminal settings">
+</p>
 
 ## Local terminal
 
@@ -114,15 +139,11 @@ Terminat is a native SwiftUI/AppKit macOS application with light/dark applicatio
 
 ## Download
 
-Download the latest signed and notarized DMG from:
-
-**[GitHub Releases](https://github.com/ClaudiuFlorea/Terminat/releases/latest)**
+Download the latest signed and notarized DMG from **[GitHub Releases](https://github.com/ClaudiuFlorea/Terminat/releases/latest)**.
 
 Current release: **2.0.0**
 
 Requires **macOS 26.3 or later**.
-
-Terminat is distributed directly for macOS and is not distributed through the Mac App Store.
 
 ## Updates
 
@@ -134,14 +155,7 @@ Updates are protected by Sparkle EdDSA signatures in addition to Apple Developer
 
 ## Privacy
 
-Terminat is local-first.
-
-It currently has:
-
-- no Terminat user account
-- no Terminat cloud sync
-- no Terminat backend
-- no advertising SDK
+Terminat is local-first and currently has no Terminat user account, cloud sync, backend, or advertising SDK.
 
 Network access is used for SSH sessions explicitly opened by the user, Sparkle update checks/downloads, and network activity initiated by commands running inside terminal sessions.
 
@@ -156,26 +170,12 @@ SHA-256
 c08d4e0ed2c3a8db09b1ec274cccfbb97b42549a3dc079a4fcae9663a7a77f8d
 ```
 
-The release DMG is:
-
-- Developer ID signed
-- built with Hardened Runtime
-- Apple notarized
-- stapled for offline Gatekeeper verification
+The release DMG is Developer ID signed, built with Hardened Runtime, Apple notarized, and stapled.
 
 ## Public repository
 
 Terminat is closed-source software.
 
-This repository contains:
-
-- release downloads
-- Sparkle update metadata
-- changelog
-- security documentation
-- privacy documentation
-- product screenshots
-
-The application source code is maintained privately.
+This repository contains release downloads, Sparkle update metadata, changelog, security/privacy documentation, and product screenshots. The application source code is maintained privately.
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
