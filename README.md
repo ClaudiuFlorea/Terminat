@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/terminat-logo.png" width="180" alt="Terminat app icon">
-</p>
-
 <h1 align="center">Terminat</h1>
 
 <p align="center">
@@ -14,10 +10,6 @@
   · Developer ID signed & Apple notarized
 </p>
 
-<p align="center">
-  <img src="assets/broadcast-input.png" alt="Terminat Broadcast Input across multiple terminal panes">
-</p>
-
 ## Why Terminat
 
 Terminat is built for people who live in terminals but want the speed and polish of a native macOS app. It combines real local `zsh` sessions, saved SSH connections, system OpenSSH, secure Keychain credentials, flexible pane layouts, and multi-session Broadcast Input in one keyboard-first workspace.
@@ -26,32 +18,9 @@ There is no Terminat account, cloud backend, advertising SDK, or browser-based t
 
 ## Workspace
 
-<table>
-  <tr>
-    <td width="50%">
-      <img src="assets/layout-picker.png" alt="Terminat layout picker">
-      <br><strong>Flexible layouts</strong><br>
-      Switch between Single, Columns, Rows, and Grid without restarting sessions.
-    </td>
-    <td width="50%">
-      <img src="assets/workspace-grid.png" alt="Terminat grid workspace">
-      <br><strong>Resizable Grid</strong><br>
-      Resize rows and columns, expand panes horizontally or vertically, and keep session order intact.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <img src="assets/grid-no-sidebar.png" alt="Terminat workspace with hidden sidebar">
-      <br><strong>Focus on the terminals</strong><br>
-      Hide the sidebar when you want the entire window for active sessions.
-    </td>
-    <td width="50%">
-      <img src="assets/grid-slots.png" alt="Terminat grid slots">
-      <br><strong>Persistent workspace structure</strong><br>
-      Grid capacity stays stable while terminals open and close during the current workspace.
-    </td>
-  </tr>
-</table>
+## Workspace
+
+Terminat supports **Single**, **Columns**, **Rows**, and **Grid** layouts without restarting sessions. Grid supports resizable rows and columns, horizontal/vertical pane expansion, persistent session order, and sidebar-free focused workflows.
 
 ## Broadcast Input
 
@@ -86,10 +55,6 @@ That means your normal OpenSSH environment continues to work, including:
 - ProxyJump / ProxyCommand
 - custom OpenSSH options handled by your SSH configuration
 
-<p align="center">
-  <img src="assets/new-connection.png" alt="Terminat New Connection editor">
-</p>
-
 Saved connections support:
 
 - name, host, port, and username
@@ -119,10 +84,6 @@ See [SECURITY.md](SECURITY.md) for implementation details.
 ## Native appearance
 
 Terminat is a native SwiftUI/AppKit macOS application with light/dark application themes, terminal themes, installed monospace font selection, live font sizing, and native Settings.
-
-<p align="center">
-  <img src="assets/settings-terminal.png" alt="Terminat terminal settings">
-</p>
 
 ## Local terminal
 
