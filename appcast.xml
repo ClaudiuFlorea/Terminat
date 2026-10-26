@@ -2,6 +2,16 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Terminat</title>
+
+        <item>
+            <title>2.1.0</title>
+            <pubDate>Mon, 26 Oct 2026 08:44:22 +0000</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>2.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.3</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/ClaudiuFlorea/Terminat/releases/download/v2.1.0/Terminat-2.1.0.dmg" length="8388869" type="application/octet-stream" sparkle:edSignature="VJV0KGv+xlEaOs58rvNDmKhHeQGHRQzNHJ0uvrWKcvRyftiM47eJgmYq0lLA38NRVezYUjszCrtgAYff1M/uCg=="/>
+        </item>
+
         <item>
             <title>2.0.0</title>
             <pubDate>Tue, 20 Oct 2026 19:24:11 +0000</pubDate>
