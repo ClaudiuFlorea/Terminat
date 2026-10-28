@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ClaudiuFlorea/Terminat/releases/latest"><strong>Download Terminat 2.0.0</strong></a>
+  <a href="https://github.com/ClaudiuFlorea/Terminat/releases/latest"><strong>Download Terminat 2.1.2</strong></a>
   · macOS 26.3+
   · Developer ID signed & Apple notarized
 </p>
@@ -141,7 +141,7 @@ Terminat is a native SwiftUI/AppKit macOS application with light/dark applicatio
 
 Download the latest signed and notarized DMG from **[GitHub Releases](https://github.com/ClaudiuFlorea/Terminat/releases/latest)**.
 
-Current release: **2.0.0**
+Current release: **2.1.2**
 
 Requires **macOS 26.3 or later**.
 
@@ -163,11 +163,11 @@ See [PRIVACY.md](PRIVACY.md).
 
 ## Release integrity
 
-**Terminat 2.0.0**
+**Terminat 2.1.2**
 
 ```text
 SHA-256
-c08d4e0ed2c3a8db09b1ec274cccfbb97b42549a3dc079a4fcae9663a7a77f8d
+22c0e9b35add03e73fcfcda0abb34fddae55c0b88ac6d9a2373f9a6a46307cb2
 ```
 
 The release DMG is Developer ID signed, built with Hardened Runtime, Apple notarized, and stapled.
