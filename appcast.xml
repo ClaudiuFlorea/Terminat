@@ -4,6 +4,15 @@
         <title>Terminat</title>
 
         <item>
+            <title>2.1.2</title>
+            <pubDate>Wed, 28 Oct 2026 12:33:54 +0000</pubDate>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>2.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.3</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/ClaudiuFlorea/Terminat/releases/download/v2.1.2/Terminat-2.1.2.dmg" length="8568142" type="application/octet-stream" sparkle:edSignature="VardkWT0HYW8ll9/93gI6qmUsIAeiI5XwWiUUcyKfyR1P/fGM4JWtghrGEEG5DpBWxg8p9z4Yjdzb4m6Wi48Cg=="/>
+        </item>
+
+        <item>
             <title>2.1.1</title>
             <pubDate>Tue, 27 Oct 2026 20:10:04 +0000</pubDate>
             <sparkle:version>6</sparkle:version>
