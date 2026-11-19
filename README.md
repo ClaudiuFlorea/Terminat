@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ClaudiuFlorea/Terminat/releases/latest"><strong>Download Terminat 2.1.2</strong></a>
+  <a href="https://github.com/ClaudiuFlorea/Terminat/releases/latest"><strong>Download Terminat 2.2.0</strong></a>
   · macOS 26.3+
   · Developer ID signed & Apple notarized
 </p>
@@ -31,12 +31,12 @@ There is no Terminat account, cloud backend, advertising SDK, or browser-based t
     <td width="50%">
       <img src="assets/layout-picker.jpg" alt="Terminat layout picker"><br>
       <strong>Flexible layouts</strong><br>
-      Switch between Single, Columns, Rows, and Grid without restarting sessions.
+      Switch between Single, Columns, Rows, and Free Form without restarting sessions.
     </td>
     <td width="50%">
       <img src="assets/workspace-grid.jpg" alt="Terminat grid workspace"><br>
-      <strong>Resizable Grid</strong><br>
-      Resize rows and columns, expand panes, and keep session order intact.
+      <strong>Free Form splits</strong><br>
+      Split, resize, swap, and equalize panes from the keyboard or by dragging pane headers.
     </td>
   </tr>
   <tr>
@@ -47,8 +47,8 @@ There is no Terminat account, cloud backend, advertising SDK, or browser-based t
     </td>
     <td width="50%">
       <img src="assets/grid-slots.jpg" alt="Terminat grid slot layout"><br>
-      <strong>Persistent grid structure</strong><br>
-      Grid capacity stays stable while terminals open and close during the current workspace.
+      <strong>Balanced panes</strong><br>
+      Columns and Rows re-equalize automatically as terminals open and close.
     </td>
   </tr>
 </table>
@@ -123,7 +123,10 @@ Terminat is a native SwiftUI/AppKit macOS application with light/dark applicatio
 
 | Shortcut | Action |
 | --- | --- |
-| **⌘T** | New Local Shell |
+| **⌘T** | New Local Shell (splits right in Free Form) |
+| **⇧⌘T** | New Local Shell, split down |
+| **⌘F** | Search in terminal buffer |
+| **⌘S** | Save session to file |
 | **⌘W** | Close current terminal session |
 | **⌘1…⌘9** | Focus terminal 1…9 |
 | **⌘←** | Previous terminal |
@@ -132,6 +135,10 @@ Terminat is a native SwiftUI/AppKit macOS application with light/dark applicatio
 | **⇧⌘-** | Remove current terminal from Broadcast selection |
 | **⇧⌘B** | Toggle Broadcast Input |
 | **⇧⌘L** | Cycle layout |
+| **⌥⌘ arrows** | Move focus between panes |
+| **⌃⌘ arrows** | Resize pane |
+| **⇧⌥⌘ arrows** | Swap panes |
+| **⌃⌘=** | Equalize pane sizes |
 | **⌘K** | Focus connection search |
 | **⇧⌘S** | Toggle sidebar |
 | **⌘,** | Settings |
@@ -141,7 +148,7 @@ Terminat is a native SwiftUI/AppKit macOS application with light/dark applicatio
 
 Download the latest signed and notarized DMG from **[GitHub Releases](https://github.com/ClaudiuFlorea/Terminat/releases/latest)**.
 
-Current release: **2.1.2**
+Current release: **2.2.0**
 
 Requires **macOS 26.3 or later**.
 
@@ -163,11 +170,11 @@ See [PRIVACY.md](PRIVACY.md).
 
 ## Release integrity
 
-**Terminat 2.1.2**
+**Terminat 2.2.0**
 
 ```text
 SHA-256
-22c0e9b35add03e73fcfcda0abb34fddae55c0b88ac6d9a2373f9a6a46307cb2
+4e18240b93c38fe2700a108dd4b45873e07a5e36a877187a034e0d04e40f8ff8
 ```
 
 The release DMG is Developer ID signed, built with Hardened Runtime, Apple notarized, and stapled.
